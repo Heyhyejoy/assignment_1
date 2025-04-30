@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: white;
+  color: black;
+  font-family: 'Gmarket Sans','sans-serif';
+}
+
+h1 {
+  font-size: 3.5rem;
+}
