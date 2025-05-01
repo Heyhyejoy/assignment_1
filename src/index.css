@@ -2,13 +2,42 @@ body {
   margin: 0;
   display: flex;
   justify-content: center;
-  align-items: center;
   min-height: 100vh;
-  background-color: white;
-  color: black;
-  font-family: 'Gmarket Sans','sans-serif';
+  background-color: rgb(255, 255, 255);
+  color: rgb(58, 58, 58);
+  font-family: 'Gmarket Sans';
+  font-size: 2.5rem;
+  align-items: center; 
+  text-align: center;
 }
 
 h1 {
-  font-size: 3.5rem;
+  display: inline;
+  text-shadow: 
+    4px 4px 8px rgb(166, 166, 166);
+}
+
+.backgroundGradient {
+  top: 0;
+  left: 0;
+  color:#fff;
+  background: linear-gradient(-45deg, #d6c5ed, #daefff, #e6c2de);
+  background-size: 400% 400%;
+  animation: colorChange 3s ease infinite;
+  position: absolute;
+  
+  z-index: -1;
+}
+
+
+@keyframes colorChange{
+  0%{
+      background-position: 0% 50%;
+  }
+  50%{
+      background-position: 100% 50%;
+  }
+  100%{
+      background-position: 0% 50%;
+  }
 }
