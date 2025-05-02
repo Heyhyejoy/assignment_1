@@ -1,4 +1,3 @@
-import { useSpring, animated } from '@react-spring/web';
 import { useState, useEffect } from 'react';
 import Confetti from 'react-confetti';
 import { useWindowSize } from 'react-use';
@@ -6,27 +5,26 @@ import { useWindowSize } from 'react-use';
 
 
 function App() {
-  const [currentNumber, updateCurrentNumber] = useState(1);
+  const [currentNumber, updateCurrentNumber] = useState<number>(1);
   const { width, height } = useWindowSize();
   const [generateConfetti, startConfetti] = useState(false);
 
-  const targetNumber = 147;
+  const targetNumber: number = 147;
+
+   //add up number from 1 to 147
+  useEffect(() => {
+    if (currentNumber < targetNumber) {
+      const timeout = setTimeout(() => {
+        updateCurrentNumber((prev) => prev + 1);
+      }, 15); 
   
-  //Animation to count up 1-147
-  const countUpAnimation = useSpring({
-    from: { number: 1 },
-    number: currentNumber,
-    config: {
-      mass: 5,
-      friction: 120,
-      tension: 150,
-    },
-  });
+      return () => clearTimeout(timeout);
+    }
+  }, [currentNumber]);   
+
   //confetti animation after 600ms 
-  //count up number to 147
   useEffect(() => {
     const timer = setTimeout(() => {
-      updateCurrentNumber(targetNumber);
       startConfetti(true);
     }, 600);
   
@@ -49,9 +47,7 @@ function App() {
         />
       )}
       <h1>
-        <animated.span>
-          {countUpAnimation.number.to((n) => Math.round(n))}
-        </animated.span>만
+        {currentNumber}만
       </h1>
     </div>
   );
