@@ -10,8 +10,10 @@ git clone https://github.com/Heyhyejoy/assignment_1.git
 cd assignment_1
 ```
 ### 3. 패키지를 설치합니다:
+```
 npm install
 npm install react react-dom
+```
 추가적으로 필요한 패키지들도 아래 명령어로 설치해 주세요:
 ```
 npm install react-confetti react-use
